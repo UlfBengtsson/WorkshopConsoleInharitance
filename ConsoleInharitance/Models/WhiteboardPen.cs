@@ -12,39 +12,29 @@ namespace ConsoleInharitance.Models
         public WhiteboardPen(string color, int textLeft) : base(textLeft)
         {
             this.color = color;
-            GetConsoleColor(color);
+            consoleColor = GetConsoleColor(color);
         }
 
         //overrides virtual from parent class even if it is polymorth to parent Pen
         public override void WriteTextLine(string text)
         {
-            if (CapOff)
-            {
-                Console.ForegroundColor = consoleColor;
-                int index = 0;
-                while (index < text.Length && TextLeft > 0)
-                {
-                    Console.Write(text[index++]);
-                    TextLeft--;
-                }
-                Console.WriteLine();
-                Console.ResetColor();
-            }
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = consoleColor;
+            base.WriteTextLine(text);
+            Console.ResetColor();
         }
 
-        private void GetConsoleColor(string color)
+        private static ConsoleColor GetConsoleColor(string color)
         {
             switch (color.ToLower())
             {
                 case "red":
-                    consoleColor = ConsoleColor.Red;
-                    break;
+                    return ConsoleColor.Red;
                 case "blue":
-                    consoleColor = ConsoleColor.Blue;
-                    break;
+                    return ConsoleColor.Blue;
                 default:
-                    consoleColor = ConsoleColor.Black;
-                    break;
+                    return ConsoleColor.Black;
+
             }
         }
     }
