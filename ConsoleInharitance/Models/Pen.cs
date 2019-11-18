@@ -14,7 +14,7 @@ namespace ConsoleInharitance.Models
             TextLeft = textLeft;
         }
 
-        public void WriteTextLine(string text)
+        public virtual void WriteTextLine(string text)
         {
             if (CapOff)
             {

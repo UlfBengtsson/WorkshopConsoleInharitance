@@ -15,8 +15,8 @@ namespace ConsoleInharitance.Models
             GetConsoleColor(color);
         }
 
-        //Hide / Shadowing with new keyword
-        public new void WriteTextLine(string text)
+        //overrides virtual from parent class even if it is polymorth to parent Pen
+        public override void WriteTextLine(string text)
         {
             if (CapOff)
             {

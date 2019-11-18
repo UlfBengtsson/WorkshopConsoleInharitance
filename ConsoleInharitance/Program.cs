@@ -13,11 +13,12 @@ namespace ConsoleInharitance
 
             normalPen.WriteTextLine("Hello World!");
 
-            WhiteboardPen whiteboardPen = new WhiteboardPen("Red", 30);
+            WhiteboardPen whiteboardPen = new WhiteboardPen("Red", 60);
 
             whiteboardPen.CapOff = true;
-
-            (whiteboardPen as Pen).WriteTextLine("Hello World!");
+            
+            whiteboardPen.WriteTextLine("Hello World!");
+            (whiteboardPen as Pen).WriteTextLine("Hello World!");//Polymorth
         }
     }
 }
