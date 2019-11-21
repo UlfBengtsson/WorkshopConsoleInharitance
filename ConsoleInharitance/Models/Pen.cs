@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ConsoleInharitance.Models
 {
-    class Pen
+    public class Pen
     {
         public int TextLeft { get; protected set; }
         public bool CapOff { get; set; }
